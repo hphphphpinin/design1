@@ -1,0 +1,408 @@
+/* Modern Portfolio Design System */
+:root {
+    --primary-color: #2C1E12;
+    /* Deep Espresso */
+    --secondary-color: #ddd3fc;
+    /* Cream */
+    --accent-color: #0f3439;
+    /* Gold */
+    --text-color: #333333;
+    --muted-color: #7D8471;
+    /* Muted Olive */
+    --font-serif: 'Playfair Display', serif;
+    --font-sans: 'Outfit', sans-serif;
+    --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.page {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+    font-family: var(--font-serif);
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+em {
+    font-style: italic;
+    color: var(--accent-color);
+}
+
+/* Header */
+header {
+    padding: 40px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: #ddd3fc(249, 244, 240, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: 30px;
+    font-weight: 400;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: var(--transition);
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: var(--transition);
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 40px;
+    align-items: center;
+    padding: 80px 0;
+}
+
+.hero img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.hero img:hover {
+    transform: translateY(-10px);
+}
+
+.hero-center {
+    text-align: center;
+    position: relative;
+}
+
+.hero-center h2 {
+    font-size: 5rem;
+    margin-bottom: -40px;
+    position: relative;
+    z-index: 2;
+    line-height: 1;
+}
+
+.hero-center img {
+    width: 90%;
+    height: 600px;
+    margin: 0 auto;
+}
+
+/* Intro Section */
+.intro {
+    padding: 100px 0;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.intro h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 400;
+}
+
+.intro p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #555;
+    font-weight: 300;
+}
+
+/* Gallery Section */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    padding: 80px 0;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item span {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: var(--muted-color);
+    letter-spacing: 0.05em;
+}
+
+.gallery-item.wide {
+    grid-column: span 2;
+}
+
+.gallery-item.wide img {
+    height: 500px;
+}
+
+.gallery-item.wide p {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    max-width: 600px;
+    font-weight: 300;
+}
+
+/* Diary Section */
+.diary {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 20px;
+    padding: 80px 0;
+}
+
+.diary-item {
+    position: relative;
+}
+
+.diary-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.diary-item:first-child {
+    position: relative;
+}
+
+.diary-item:first-child p {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    right: 40px;
+    color: white;
+    background: rgba(44, 30, 18, 0.7);
+    padding: 30px;
+    backdrop-filter: blur(5px);
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+/* Quote Section */
+.quote {
+    padding: 120px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    margin: 0 -40px;
+    padding: 120px 40px;
+}
+
+.quote h2 {
+    color: var(--secondary-color);
+    text-align: center;
+    font-size: 2.5rem;
+    line-height: 1.4;
+    margin-bottom: 60px;
+    font-weight: 400;
+}
+
+.quote img {
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* About Section */
+.about {
+    padding: 120px 0;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+
+.about-images {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+}
+
+.about-images img {
+    width: 50%;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.about-text {
+    flex: 1;
+}
+
+.about-text .beans {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    line-height: 1.2;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 300;
+}
+
+/* Menu/Footer Links */
+.menu {
+    padding: 60px 0;
+    border-top: 1px solid #ffffff;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    transition: var(--transition);
+}
+
+.menu a:hover {
+    color: var(--accent-color);
+}
+
+/* Footer */
+footer {
+    padding: 60px 0;
+    text-align: center;
+    background-color: #ddd3fc margin: 0 -40px;
+}
+
+footer .icons {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--muted-color);
+    margin-bottom: 20px;
+}
+
+footer p {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* Fallback for missing images */
+img[src$=".jpg"] {
+    background-color: hsl(294, 71%, 86%);
+    position: relative;
+}
+
+img[src$=".jpg"]:not([src^="images/jane-main"]):not([src^="images/coffee-hand"]):not([src^="images/cup"])::after {
+    content: 'Photo by Jane';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #888;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .hero {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-center h2 {
+        font-size: 3rem;
+        margin-bottom: 0;
+    }
+
+    .hero img.left,
+    .hero img.right {
+        display: none;
+    }
+
+    .about {
+        flex-direction: column;
+    }
+
+    .about-images {
+        width: 100%;
+    }
+
+    .diary {
+        grid-template-columns: 1fr;
+    }
+}
